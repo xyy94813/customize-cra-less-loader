@@ -11,6 +11,8 @@
 Add less loader to any `create-react-app` using `customize-cra`.
 Support with `css-loader` v3.
 
+> Only support `react-scripts` version >= `v3.3.0`.
+
 > If [PR 255](https://github.com/arackaf/customize-cra/pull/255) been merged into master,
 > you don't need this modules
 
