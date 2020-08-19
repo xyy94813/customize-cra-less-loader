@@ -1,6 +1,6 @@
 # customize-cra-less-loader
 
-[![Github Build Status](https://github.com/xyy94813/customize-cra-less-loader/workflows/Node%20CI/badge.svg?branch=master)](https://github.com/xyy94813/customize-cra-less-loader/actions?query=workflow%3A%22Node+CI%22)
+[![Github Build Status](https://github.com/xyy94813/customize-cra-less-loader/workflows/Test%20And%20Build/badge.svg)](https://github.com/xyy94813/customize-cra-less-loader/actions?query=workflow%3A%22Test+And+Build%22)
 [![Codecov](https://img.shields.io/codecov/c/github/xyy94813/customize-cra-less-loader/master.svg?style=flat-square)](https://codecov.io/gh/xyy94813/customize-cra-less-loader/branch/master)
 [![Dependencies](https://img.shields.io/david/xyy94813/customize-cra-less-loader.svg)](https://david-dm.org/xyy94813/customize-cra-less-loader)
 [![DevDependencies](https://img.shields.io/david/dev/xyy94813/customize-cra-less-loader.svg)](https://david-dm.org/xyy94813/customize-cra-less-loader?type=dev)
