@@ -1,0 +1,12 @@
+**
+# output dir
+!es/**
+!lib/**
+!dist/**
+!index.js
+
+# package info
+!LICENSE
+!READNE.md
+!package.json
+#!package-lock.json

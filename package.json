@@ -1,0 +1,53 @@
+{
+  "name": "customize-cra-less-loader",
+  "version": "1.0.0",
+  "description": "Add less loader to any create-react-app using customize-cra",
+  "main": "index.js",
+  "module": "es/next-with-polyfill.development.js",
+  "scripts": {
+    "prebuild": "rm -rf es lib",
+    "build": "rollup --config rollup.config.js",
+    "lint": "eslint '**/*.js'",
+    "format": "eslint '**/*.js' --fix",
+    "jest": "jest",
+    "test": "yarn run lint && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xyy94813/customize-cra-less-loader.git"
+  },
+  "keywords": [
+    "CRA",
+    "create-react-app",
+    "customize-cra",
+    "less-loader"
+  ],
+  "author": "RoXoM <xyy94813@sina.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xyy94813/customize-cra-less-loader/issues"
+  },
+  "homepage": "https://github.com/xyy94813/customize-cra-less-loader#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.3.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "jest": "^26.4.0",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "rollup": "^2.26.3",
+    "rollup-plugin-terser": "^7.0.0"
+  },
+  "peerDependencies": {
+    "customize-cra": ">=0.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

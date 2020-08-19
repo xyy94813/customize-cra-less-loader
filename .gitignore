@@ -1,3 +1,11 @@
+# Output
+dist
+es
+
+# IDE Configure
+.vscode
+.idea
+
 # Logs
 logs
 *.log
