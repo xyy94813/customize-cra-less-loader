@@ -1,6 +1,8 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-unresolved */
 export default (loaderOptions = {}) => config => {
-  const MiniCssExtractPlugin = require.resolve('mini-css-extract-plugin');
-  const postcssNormalize = require.resolve('postcss-normalize');
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+  const postcssNormalize = require('postcss-normalize');
 
   const cssLoaderOptions = loaderOptions.cssLoaderOptions || {};
   const lessLoaderOptions = loaderOptions.lessLoaderOptions || {};
@@ -37,8 +39,8 @@ export default (loaderOptions = {}) => config => {
         options: {
           ident: 'postcss',
           plugins: () => [
-            require.resolve('postcss-flexbugs-fixes'),
-            require.resolve('postcss-preset-env')({
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
               autoprefixer: {
                 flexbox: 'no-2009',
               },
