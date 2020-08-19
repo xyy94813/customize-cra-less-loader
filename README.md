@@ -1,5 +1,13 @@
 # customize-cra-less-loader
 
+[![Github Build Status](https://github.com/xyy94813/customize-cra-less-loader/workflows/Node%20CI/badge.svg?branch=master)](https://github.com/xyy94813/customize-cra-less-loader/actions?query=workflow%3A%22Node+CI%22)
+[![Codecov](https://img.shields.io/codecov/c/github/xyy94813/customize-cra-less-loader/master.svg?style=flat-square)](https://codecov.io/gh/xyy94813/customize-cra-less-loader/branch/master)
+[![Dependencies](https://img.shields.io/david/xyy94813/customize-cra-less-loader.svg)](https://david-dm.org/xyy94813/customize-cra-less-loader)
+[![DevDependencies](https://img.shields.io/david/dev/xyy94813/customize-cra-less-loader.svg)](https://david-dm.org/xyy94813/customize-cra-less-loader?type=dev)
+
+[![npm package](https://img.shields.io/npm/v/customize-cra-less-loader.svg?style=flat-square)](https://www.npmjs.org/package/customize-cra-less-loader)
+[![npm downloads](https://img.shields.io/npm/dm/customize-cra-less-loader.svg?style=flat-square)](http://npmjs.com/customize-cra-less-loader)
+
 Add less loader to any `create-react-app` using `customize-cra`.
 Support with `css-loader` v3.
 
