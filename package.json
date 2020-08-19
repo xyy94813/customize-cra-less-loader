@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Add less loader to any create-react-app using customize-cra",
   "main": "index.js",
-  "module": "es/next-with-polyfill.development.js",
+  "module": "es/customize-cra-less-loader.development.js",
   "scripts": {
     "prebuild": "rm -rf es lib",
     "build": "rollup --config rollup.config.js",
