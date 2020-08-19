@@ -2,7 +2,7 @@
 'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./lib/next-with-polyfill.production');
+  module.exports = require('./dist/customize-cra-less-loader.production');
 } else {
-  module.exports = require('./lib/next-with-polyfill.development');
+  module.exports = require('./dist/customize-cra-less-loader.development');
 }
