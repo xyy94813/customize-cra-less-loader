@@ -18,11 +18,11 @@ Support with `css-loader` v3.
 
 ## Usage
 
-First, install less and less-loader packages:
+First, install customize-cra-less-loader, less and less-loader packages:
 
 ```sh
-npm i -D less less-loader
-// or yarn add --dev less less-loader
+npm i -D customize-cra-less-loader less less-loader
+// or yarn add --dev customize-cra-less-loader less less-loader
 ```
 
 After it's done, call addLessLoader in override like below:
