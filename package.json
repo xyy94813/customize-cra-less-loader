@@ -45,10 +45,5 @@
   "peerDependencies": {
     "react-scripts": ">=3.3.0",
     "customize-cra": ">=0.9"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
