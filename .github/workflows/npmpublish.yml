@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
+      - run: npx npm-install-peers
       - run: npm test
       - run: npm run build
       - uses: actions/upload-artifact@v2
