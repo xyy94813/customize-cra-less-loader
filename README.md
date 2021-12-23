@@ -11,7 +11,7 @@
 Add less loader to any `create-react-app` using `customize-cra`.
 Support with `css-loader` v3.
 
-> Only support `react-scripts` version >= `v3.3.0`.
+> Only support `react-scripts` version >= `v5.0.0`.
 
 > If [PR 255](https://github.com/arackaf/customize-cra/pull/255) been merged into master,
 > you don't need this modules
@@ -82,6 +82,6 @@ DefinitelyTyped only works because of contributions by users like you!
 
 But, you can ignore the `scope`
 
-## Lisense
+## License
 
 MIT RoXoM <xyy94813@sina.com>

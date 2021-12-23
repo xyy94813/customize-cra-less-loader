@@ -4,7 +4,7 @@ describe('addLessLoader', () => {
   const findLessLoaderConf = loader => loader.test && loader.test.test('a.less');
   const findLessModuleLoaderConf = loader =>
     loader.test && loader.test.test('a.module.less') && !loader.test.test('a.less');
-  const isCSSLoader = loader => /css-loader.js$/.test(loader);
+  const isCSSLoader = loader => /css-loader/.test(loader);
   const isLessLoader = loader => /less-loader.js$/.test(loader);
 
   const webpackEnv = process.env.NODE_ENV;
@@ -23,9 +23,10 @@ describe('addLessLoader', () => {
         rules: [
           {
             oneOf: [
-              // last on loader is file loader
+              // last on loader is assets loader
               {
-                loader: 'file-loader',
+                exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+                type: 'asset/resource',
               },
             ],
           },
@@ -51,25 +52,28 @@ describe('addLessLoader', () => {
     const loaders = finalConfig.module.rules.find(rule => Array.isArray(rule.oneOf)).oneOf;
 
     // find less loader
-    const lessLoder = loaders.find(findLessLoaderConf);
+    const lessLoader = loaders.find(findLessLoaderConf);
 
-    expect(lessLoder.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
+    expect(lessLoader.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
       importLoaders: 2,
       sourceMap: shouldUseSourceMap,
       onlyLocals: true,
       modules: false,
     });
-    expect(lessLoder.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual({
+    expect(lessLoader.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual({
       sourceMap: shouldUseSourceMap,
       lessOptions: {
+        rewriteUrls: 'local',
         strictMath: true,
       },
     });
 
     // find less module loader
-    const lessModuleLoder = loaders.find(findLessModuleLoaderConf);
+    const lessModuleLoader = loaders.find(findLessModuleLoaderConf);
 
-    expect(lessModuleLoder.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
+    expect(lessModuleLoader.use.find(
+      loaderConf => isCSSLoader(loaderConf.loader)).options,
+    ).toEqual({
       importLoaders: 2,
       sourceMap: shouldUseSourceMap,
       onlyLocals: true,
@@ -77,14 +81,15 @@ describe('addLessLoader', () => {
         localIdentName: '[hash:base64:8]',
       },
     });
-    expect(lessModuleLoder.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual(
-      {
-        sourceMap: shouldUseSourceMap,
-        lessOptions: {
-          strictMath: true,
-        },
+    expect(lessModuleLoader.use.find(
+      loaderConf => isLessLoader(loaderConf.loader)).options,
+    ).toEqual({
+      sourceMap: shouldUseSourceMap,
+      lessOptions: {
+        rewriteUrls: 'local',
+        strictMath: true,
       },
-    );
+    });
   });
 
   test('without options', () => {
@@ -96,9 +101,10 @@ describe('addLessLoader', () => {
         rules: [
           {
             oneOf: [
-              // last on loader is file loader
+              // last on loader is assets loader
               {
-                loader: 'file-loader',
+                exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+                type: 'asset/resource',
               },
             ],
           },
@@ -112,30 +118,41 @@ describe('addLessLoader', () => {
     const loaders = finalConfig.module.rules.find(rule => Array.isArray(rule.oneOf)).oneOf;
 
     // find less loader
-    const lessLoder = loaders.find(findLessLoaderConf);
+    const lessLoader = loaders.find(findLessLoaderConf);
 
-    expect(lessLoder.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
+    expect(lessLoader.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
       importLoaders: 2,
       sourceMap: shouldUseSourceMap,
       modules: false,
     });
-    expect(lessLoder.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual({
+    expect(lessLoader.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual({
       sourceMap: shouldUseSourceMap,
+      lessOptions: {
+        rewriteUrls: 'local',
+      },
     });
 
     // find less module loader
-    const lessModuleLoder = loaders.find(findLessModuleLoaderConf);
-
-    expect(lessModuleLoder.use.find(loaderConf => isCSSLoader(loaderConf.loader)).options).toEqual({
+    const lessModuleLoaderRule = loaders.find(findLessModuleLoaderConf);
+    const cssLoaderConf = lessModuleLoaderRule.use.find(
+      loaderConf => isCSSLoader(loaderConf.loader),
+    );
+    expect(cssLoaderConf.options).toEqual({
       importLoaders: 2,
       sourceMap: shouldUseSourceMap,
       modules: {
         localIdentName: '[local]--[hash:base64:5]',
       },
     });
-    expect(lessModuleLoder.use.find(loaderConf => isLessLoader(loaderConf.loader)).options).toEqual(
+    const lessLoaderConf = lessModuleLoaderRule.use.find(
+      loaderConf => isLessLoader(loaderConf.loader),
+    );
+    expect(lessLoaderConf.options).toEqual(
       {
         sourceMap: shouldUseSourceMap,
+        lessOptions: {
+          rewriteUrls: 'local',
+        },
       },
     );
   });
