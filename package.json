@@ -1,6 +1,6 @@
 {
   "name": "customize-cra-less-loader",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Add less loader to any create-react-app using customize-cra",
   "main": "index.js",
   "module": "es/customize-cra-less-loader.development.js",
